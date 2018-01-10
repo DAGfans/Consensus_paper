@@ -4,8 +4,10 @@ list of classic BA papers by topic & timeline
 ### Byzantine generals problem
 - PSL80
   - Marshall C. Pease, Robert E. Shostak, and Leslie Lamport. Reaching agreement in the presence of faults. 
+  - https://lamport.azurewebsites.net/pubs/reaching.pdf
 - LSP82
   - Leslie Lamport, Robert E. Shostak, and Marshall C. Pease. The byzantine generals problem
+  - http://lamport.azurewebsites.net/pubs/byz.pdf
 ###
 - BO83
 - Rab83
