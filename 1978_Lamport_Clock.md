@@ -2,6 +2,19 @@ The concept of one event happening before another in a distributed system is exa
 
 通过定义事件的偏序关系来检查分布式系统的事件发生的先后。即通过一种分布式算法来同步系统的逻辑时钟，来给事件进行全局排序。
 
+> http://betathoughts.blogspot.jp/2007/06/brief-history-of-consensus-2pc-and.html
+> 
+> The issue is that in a distributed system you cannot tell if event A happened before event B, unless A caused B in some way. Each observer can see events happen in a different order, except for events that cause each other, ie there is only a partial ordering of events in a distributed system. Lamport defines the "happens before" relationship and operator, and goes on to give an algorithm that provides a total ordering of events in a distributed system, so that each process sees events in the same order as every other process.
+> 
+> Lamport also introduces the concept of a distributed state machine: start a set of deterministic state machines in the same state and then make sure they process the same messages in the same order. Each machine is now a replica of the others. The key problem is making each replica agree what is the next message to process: a consensus problem. This is what the algorithm for creating a total ordering of events does, it provides an agreed ordering for the delivery of messages. However, the system is not fault tolerant; if one process fails that others have to wait for it to recover.
+
+有意思的是关于分布式状态机的概念，lamport的原文并没有强调阐述，lamport专门还做了comments来强调
+> http://lamport.azurewebsites.net/pubs/pubs.html#time-clocks
+> It didn't take me long to realize that an algorithm for totally ordering events could be used to implement any distributed system.  A distributed system can be described as a particular sequential state machine that is implemented with a network of processors.  The ability to totally order the input requests leads immediately to an algorithm to implement an arbitrary state machine by a network of processors, and hence to implement any distributed system.  So, I wrote this paper, which is about how to implement an arbitrary distributed state machine.  As an illustration, I used the simplest example of a distributed system I could think of--a distributed mutual exclusion algorithm. 
+> 
+> This is my most often cited paper.  Many computer scientists claim to have read it.  But I have rarely encountered anyone who was aware that the paper said anything about state machines.  People seem to think that it is about either the causality relation on events in a distributed system, or the distributed mutual exclusion problem.  People have insisted that there is nothing about state machines in the paper.  I've even had to go back and reread it to convince myself that I really did remember what I had written. 
+
+
 
 * 问题
   - 一致性不是简单的让两个节点最终对一个值的结果一致, 很多时候还需要对这个值的变化历史在不同节点上的观点也要一致 
