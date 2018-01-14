@@ -1,3 +1,7 @@
+> What usually matters it not that all processes argee on exactly what time it is, but rather that they agree on the order in which events occur. （问题的关键不在对事件的具体发生时间达成一致，而在于对事件的先后顺序达成一致）
+> 
+> -- Distributed Systems 3e by Steen & Tanenbaum
+
 The concept of one event happening before another in a distributed system is examined, and is shown to define a partial ordering of the events. A distributed algorithm is given for synchronizing a system of logical clocks which can be used to totally order the events. The use of the total ordering is illustrated with a method for solving synchronization problems. The algorithm is then specialized for synchronizing physical clocks, and a bound is derived on how far out of synchrony the clocks can become.
 
 通过定义事件的偏序关系来检查分布式系统的事件发生的先后。即通过一种分布式算法来同步系统的逻辑时钟，来给事件进行全局排序。
