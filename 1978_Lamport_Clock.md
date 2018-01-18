@@ -4,6 +4,11 @@
 >
 > -- Distributed Systems 3e by Steen & Tanenbaum
 
+> since we cannot synchronize clocks perfectly across a distributed system, we cannot in general use physical
+> time to find out the order of any arbitrary pair of events occurring within it.
+>
+> -- Distributed Systems: Concepts and Design 5e by CDKB_12
+
 The concept of one event happening before another in a distributed system is examined, and is shown to define
 a partial ordering of the events. A distributed algorithm is given for synchronizing a system of logical clocks
 which can be used to totally order the events. The use of the total ordering is illustrated with a method for
