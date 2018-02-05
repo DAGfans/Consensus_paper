@@ -1,4 +1,4 @@
-> What usually matters it not that all processes argee on exactly what time it is, but rather that they agree
+> What usually matters is not that all processes agree on exactly what time it is, but rather that they agree
 > on the order in which events occur.
 > （问题的关键不在对事件的具体发生时间达成一致，而在于对事件的先后顺序达成一致）
 >
