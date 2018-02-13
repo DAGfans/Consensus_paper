@@ -1,13 +1,20 @@
 > What usually matters is not that all processes agree on exactly what time it is, but rather that they agree
 > on the order in which events occur.
-> （问题的关键不在对事件的具体发生时间达成一致，而在于对事件的先后顺序达成一致）
+>
+> 问题的关键不在对事件的具体发生时间达成一致，而在于对事件的先后顺序达成一致。
 >
 > -- Distributed Systems 3e by Steen & Tanenbaum
+>
+> -- 《分布式系统（第3版）》Steen、Tanenbaum
 
 > since we cannot synchronize clocks perfectly across a distributed system, we cannot in general use physical
 > time to find out the order of any arbitrary pair of events occurring within it.
 >
+> 由于无法完美同步一个分布式系统里的时钟，因此一般不能用物理时间来决定系统中任意一对事件之间的先后顺序。
+>
 > -- Distributed Systems: Concepts and Design 5e by CDKB_12
+>
+> -- 《分布式系统：概念与设计（第5版）》CDKB_12
 
 The concept of one event happening before another in a distributed system is examined, and is shown to define
 a partial ordering of the events. A distributed algorithm is given for synchronizing a system of logical clocks
