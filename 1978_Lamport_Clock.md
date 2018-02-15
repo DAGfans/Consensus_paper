@@ -22,7 +22,9 @@ which can be used to totally order the events. The use of the total ordering is 
 solving synchronization problems. The algorithm is then specialized for synchronizing physical clocks, and a
 bound is derived on how far out of synchrony the clocks can become.
 
-通过定义事件的偏序关系来检查分布式系统的事件发生的先后。即通过一种分布式算法来同步系统的逻辑时钟，来给事件进行全局排序。
+研究了分布式系统中一个事件发生在另一个事件之前的概念，并且定义了事件之间的偏序关系。给出了一个分布式算法，用于
+同步系统中的逻辑时钟，从而对事件进行全序排序。通过一个解决同步问题的方法展示了全序关系的用处。接着将这个算法用
+来同步物理时钟，并且推导出时钟之间非同步状态所能达到的上限。
 
 > http://betathoughts.blogspot.jp/2007/06/brief-history-of-consensus-2pc-and.html
 >
