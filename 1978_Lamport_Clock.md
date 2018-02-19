@@ -10,7 +10,7 @@
 > since we cannot synchronize clocks perfectly across a distributed system, we cannot in general use physical
 > time to find out the order of any arbitrary pair of events occurring within it.
 >
-> 由于无法完美同步一个分布式系统里的时钟，因此一般不能用物理时间来决定系统中任意一对事件之间的先后顺序。
+> 由于无法完美同步一个分布式系统里的时钟，因此一般不能用物理时间来决定系统中任意一对事件的先后顺序。
 >
 > -- Distributed Systems: Concepts and Design 5e by CDKB_12
 >
@@ -34,16 +34,26 @@ bound is derived on how far out of synchrony the clocks can become.
 > relationship and operator, and goes on to give an algorithm that provides a total ordering of events in a
 > distributed system, so that each process sees events in the same order as every other process.
 >
+> 问题在于，在一个分布式系统中，你无法确定事件A是否在事件B之前发生，除非A以某种方式引发B。每个观察者观察到的事件顺序
+> 都可能是不一样的，也就是说分布式系统中的事件只存在偏序关系。兰伯特定义了“在之前发生”的关系和操作符，进而给出一个算
+> 法，用来为分布式系统中的事件提供一个全序关系，从而使每个进程观察到的事件顺序都是一样的。
+>
 > Lamport also introduces the concept of a distributed state machine: start a set of deterministic state machines
 > in the same state and then make sure they process the same messages in the same order. Each machine is now a
 > replica of the others. The key problem is making each replica agree what is the next message to process: a
 > consensus problem. This is what the algorithm for creating a total ordering of events does, it provides an agreed
 > ordering for the delivery of messages. However, the system is not fault tolerant; if one process fails that others
 > have to wait for it to recover.
+>
+> 兰伯特还引入了分布式状态机的概念：确保一组确定状态机以相同的状态开始，以同样的顺序处理同样的消息。这样每个状态机都
+> 是其它状态机的一份拷贝。关键问题是要让每份拷贝在要处理的下条消息上达成一致，即一致性问题。这就是为事件创建全序关系
+> 的算法所做的事情，它为消息投递提供了一致认可的顺序。尽管如此，这个系统并不具备容错性；一旦一个进程失败，其它进程就
+> 要等待它恢复。
 
-有意思的是关于分布式状态机的概念，lamport的原文并没有强调阐述，lamport专门还做了comments来强调
+译者注：有意思的是，兰伯特的原文并没有强调阐述分布式状态机的概念，为此兰伯特事后还特地发表了评论。
 
 > http://lamport.azurewebsites.net/pubs/pubs.html#time-clocks
+>
 > It didn't take me long to realize that an algorithm for totally ordering events could be used to implement any
 > distributed system.  A distributed system can be described as a particular sequential state machine that is
 > implemented with a network of processors.  The ability to totally order the input requests leads immediately
@@ -58,6 +68,7 @@ bound is derived on how far out of synchrony the clocks can become.
 > People have insisted that there is nothing about state machines in the paper.  I've even had to go back and reread
 > it to convince myself that I really did remember what I had written.
 
+译者总结：
 
 * 问题
   - 一致性不是简单的让两个节点最终对一个值的结果一致, 很多时候还需要对这个值的变化历史在不同节点上的观点也要一致
