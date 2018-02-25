@@ -46,27 +46,36 @@ bound is derived on how far out of synchrony the clocks can become.
 > have to wait for it to recover.
 >
 > 兰伯特还引入了分布式状态机的概念：确保一组确定状态机以相同的状态开始，以同样的顺序处理同样的消息。这样每个状态机都
-> 是其它状态机的一份拷贝。关键问题是要让每份拷贝在要处理的下条消息上达成一致，即一致性问题。这就是为事件创建全序关系
-> 的算法所做的事情，它为消息投递提供了一致认可的顺序。尽管如此，这个系统并不具备容错性；一旦一个进程失败，其它进程就
-> 要等待它恢复。
+> 是其它状态机的一份拷贝。关键问题是要让每份拷贝在要处理的下条消息上达成一致，即共识问题。这就是为事件创建全序关系的
+> 算法所做的事情，它为消息投递提供了一致认可的顺序。尽管如此，这个系统并不具备容错性；一旦一个进程失败，其它进程就要
+> 等待它恢复。
 
 译者注：有意思的是，兰伯特的原文并没有强调阐述分布式状态机的概念，为此兰伯特事后还特地发表了评论。
 
 > http://lamport.azurewebsites.net/pubs/pubs.html#time-clocks
 >
 > It didn't take me long to realize that an algorithm for totally ordering events could be used to implement any
-> distributed system.  A distributed system can be described as a particular sequential state machine that is
-> implemented with a network of processors.  The ability to totally order the input requests leads immediately
+> distributed system. A distributed system can be described as a particular sequential state machine that is
+> implemented with a network of processors. The ability to totally order the input requests leads immediately
 > to an algorithm to implement an arbitrary state machine by a network of processors, and hence to implement any
 > distributed system.  So, I wrote this paper, which is about how to implement an arbitrary distributed state machine.
 > As an illustration, I used the simplest example of a distributed system I could think of--a distributed mutual
 > exclusion algorithm.
 >
-> This is my most often cited paper.  Many computer scientists claim to have read it.  But I have rarely encountered
-> anyone who was aware that the paper said anything about state machines.  People seem to think that it is about
+> 我很快意识到事件的全序排序算法可以用来实现任何一个分布式系统。一个分布式系统可以被描述为由一组处理器网络实现的一个
+> 特别的顺序状态机。当我们具备对输入请求进行全序排序的能力后，我们立即就可以得到一个算法，可以用一组处理器网络来实现
+> 任意一个状态机，由此实现任何的分布式系统。因此我写的这篇文章是关于如何实现任意的分布式状态。作为示例，我试用了我能
+> 想到的分布式系统的最简单的例子——一个分布式互斥锁算法。
+>
+> This is my most often cited paper. Many computer scientists claim to have read it. But I have rarely encountered
+> anyone who was aware that the paper said anything about state machines. People seem to think that it is about
 > either the causality relation on events in a distributed system, or the distributed mutual exclusion problem.
-> People have insisted that there is nothing about state machines in the paper.  I've even had to go back and reread
+> People have insisted that there is nothing about state machines in the paper. I've even had to go back and reread
 > it to convince myself that I really did remember what I had written.
+>
+> 这是我被引用得最多的论文。许多计算机科学家声称读过这篇文章。但我发现几乎没有任何一个人意识到这篇文章讲述了状态机的
+> 东西。大家好像觉得它讲的是分布式系统中事件之间的关系的随意性，或是分布式互斥锁问题。大家坚持认为这篇文章没有讲关于
+> 状态机的任何东西。我甚至不得不回头重新将它读一遍以确认我确实记得自己写的东西。
 
 译者总结：
 
